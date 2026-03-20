@@ -127,7 +127,7 @@ export default function Budget() {
                                 <div className="flex items-center gap-2">
                                   <span className="text-tdc-gray-700">{item.name}</span>
                                   {item.isTBD && <span className="text-xs bg-amber-100 text-amber-600 px-1.5 py-0.5 rounded">TBD</span>}
-                                  {item.isVariable && <span className="text-xs bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded">Variable</span>}
+                                  {item.isVariable && <span className="text-xs bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded">Variable</span>}
                                   {item.notes && (
                                     <span className="text-xs text-tdc-gray-400 flex items-center gap-0.5" title={item.notes}>
                                       <Info size={12} />
