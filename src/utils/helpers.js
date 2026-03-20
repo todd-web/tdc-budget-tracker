@@ -20,10 +20,10 @@ export function getPercentage(spent, budget) {
 }
 
 export function getStatusColor(percentage) {
-  if (percentage >= 100) return '#ef4444'; // red
-  if (percentage >= 90) return '#f97316'; // orange
-  if (percentage >= 75) return '#f59e0b'; // yellow
-  return '#10b981'; // green
+  if (percentage >= 100) return '#000000'; // TDC Black - over budget
+  if (percentage >= 90) return '#404752'; // TDC Dark Gray - critical
+  if (percentage >= 75) return '#A48450'; // TDC Gold - warning
+  return '#A5A6A5'; // TDC Medium Gray - on track
 }
 
 export function getStatusLabel(percentage) {

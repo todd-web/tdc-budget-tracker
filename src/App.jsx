@@ -30,13 +30,16 @@ function AppContent() {
       <header className="bg-tdc-black text-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-xl font-bold tracking-tight">TDC Expert Team Budget Tracker</h1>
-              <p className="text-sm text-tdc-gray-400 mt-0.5">2026 Strategic Plan - Operational, Recruitment, Engagement</p>
+            <div className="flex items-center gap-4">
+              <img src={import.meta.env.BASE_URL + 'tdc-logo.png'} alt="The Desire Company" className="h-10" />
+              <div>
+                <h1 className="text-xl font-bold tracking-tight">Expert Team Budget Tracker</h1>
+                <p className="text-sm text-tdc-gray-400 mt-0.5">2026 Strategic Plan</p>
+              </div>
             </div>
             <div className="text-right text-sm">
               <div className="text-tdc-gray-400">Fiscal Year 2026</div>
-              <div className="text-tdc-gold font-semibold">The Desire Company</div>
+              <div className="text-tdc-gold font-semibold">Operational / Recruitment / Engagement</div>
             </div>
           </div>
         </div>
