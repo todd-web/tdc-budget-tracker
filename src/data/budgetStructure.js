@@ -18,10 +18,10 @@ export const CATEGORIES = [
         name: 'Operational Platforms',
         items: [
           { id: 'streak-crm', name: 'Streak CRM', budget: 1656, period: 'annual', notes: 'Plus plan, 2 seats. Billed under Nakeya. $69 x 2 users x 12 months.', monthlyAmount: 138 },
-          { id: 'jace-ai', name: 'Jace.AI', budget: 200, period: 'annual', notes: 'Monthly receipts confirmed Jan-Mar 2026' },
+          { id: 'jace-ai', name: 'Jace.AI', budget: 240, period: 'annual', notes: 'Plus plan, $20/mo. Receipts confirmed Jan-Mar 2026 via Stripe (card ending 1065).', monthlyAmount: 20 },
           { id: 'chatgpt-pro', name: 'ChatGPT Pro (Ended)', budget: 400, period: 'annual', notes: 'STOPPED after February 2026. Only Jan + Feb charged at $200/mo.', monthlyAmount: 200, stoppedDate: '2026-02-28' },
           { id: 'claude-ai', name: 'Claude (Potential)', budget: 0, period: 'annual', notes: 'Evaluating as AI platform. Budget TBD.', isTBD: true },
-          { id: 'wispr-flow', name: 'Wispr Flow', budget: 240, period: 'annual', notes: 'New tool since Feb 2026. Receipts confirmed.', monthlyAmount: 20, isNew: true },
+          { id: 'wispr-flow', name: 'Wispr Flow', budget: 165, period: 'annual', notes: 'Flow Pro, 1 seat, $15/mo via Stripe Link. Started Feb 2026 (11 months = $165).', monthlyAmount: 15, isNew: true },
         ]
       },
       {
@@ -64,7 +64,7 @@ export const CATEGORIES = [
           { id: 'conf-q1', name: 'Q1 Conferences', budget: 250, period: 'quarter', quarter: 1, notes: 'Auto Show, PHCC Expo, Inspired Home, C2E2 ($145-$355). No spend yet.', budgetLow: 145, budgetHigh: 355 },
           { id: 'conf-q2', name: 'Q2 Conferences', budget: 600, period: 'quarter', quarter: 2, notes: 'Food as Medicine, NRA Show, Smart Home Expo, Automate ($535-$670)', budgetLow: 535, budgetHigh: 670 },
           { id: 'conf-q3', name: 'Q3 Conferences', budget: 0, period: 'quarter', quarter: 3, notes: 'None scheduled', isTBD: true },
-          { id: 'conf-q4', name: 'Q4 Conferences', budget: 18, period: 'quarter', quarter: 4, notes: 'Chicago Build (free), Women\'s Expo ($15-$20)', budgetLow: 15, budgetHigh: 20 },
+          { id: 'conf-q4', name: 'Q4 Conferences', budget: 20, period: 'quarter', quarter: 4, notes: 'Chicago Build (free), Women\'s Expo ($15-$20)', budgetLow: 15, budgetHigh: 20 },
         ]
       },
       {
@@ -173,14 +173,14 @@ export function getAllBudgetItems() {
 // VERIFIED expenses ONLY from TDC email receipts/invoices
 export const SAMPLE_EXPENSES = [
   { id: '1', date: '2026-01-03', categoryId: 'recruitment', subcategoryId: 'rec-platforms', itemId: 'workable', projectId: null, amount: 555, vendor: 'Workable', description: 'January - Standard Recruiting monthly', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
-  { id: '2', date: '2026-02-28', categoryId: 'recruitment', subcategoryId: 'rec-platforms', itemId: 'workable', projectId: null, amount: 575, vendor: 'Workable', description: 'February - Standard Recruiting monthly (refund pending)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified', 'refund-pending'] },
+  { id: '2', date: '2026-03-01', categoryId: 'recruitment', subcategoryId: 'rec-platforms', itemId: 'workable', projectId: null, amount: 575, vendor: 'Workable', description: 'March 1 - Erroneous monthly charge (refund submitted by Jack McGinn, 3-5 biz days)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified', 'refund-pending'] },
   { id: '3', date: '2026-01-01', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'chatgpt-pro', projectId: null, amount: 200, vendor: 'OpenAI', description: 'January ChatGPT Pro', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring'] },
   { id: '4', date: '2026-02-01', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'chatgpt-pro', projectId: null, amount: 200, vendor: 'OpenAI', description: 'February ChatGPT Pro (FINAL)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'final'] },
-  { id: '5', date: '2026-01-03', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'jace-ai', projectId: null, amount: 17, vendor: 'Jace AI', description: 'January (receipt #2692-2076)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
-  { id: '6', date: '2026-02-04', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'jace-ai', projectId: null, amount: 17, vendor: 'Jace AI', description: 'February (receipt #2425-4998)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
-  { id: '7', date: '2026-03-02', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'jace-ai', projectId: null, amount: 17, vendor: 'Jace AI', description: 'March (receipt #2788-6658)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
-  { id: '8', date: '2026-02-22', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'wispr-flow', projectId: null, amount: 20, vendor: 'Wispr Flow', description: 'February (receipt #2453-3488)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
-  { id: '9', date: '2026-03-21', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'wispr-flow', projectId: null, amount: 20, vendor: 'Wispr Flow', description: 'March auto-renewal', paymentMethod: 'auto-payment', status: 'pending', receiptId: null, tags: ['recurring'] },
+  { id: '5', date: '2026-01-03', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'jace-ai', projectId: null, amount: 20, vendor: 'Jace AI', description: 'January (receipt #2692-2076)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
+  { id: '6', date: '2026-02-04', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'jace-ai', projectId: null, amount: 20, vendor: 'Jace AI', description: 'February (receipt #2425-4998)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
+  { id: '7', date: '2026-03-02', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'jace-ai', projectId: null, amount: 20, vendor: 'Jace AI', description: 'March (receipt #2788-6658)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
+  { id: '8', date: '2026-02-22', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'wispr-flow', projectId: null, amount: 15, vendor: 'Wispr Flow', description: 'February (receipt #2453-3488)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
+  { id: '9', date: '2026-03-21', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'wispr-flow', projectId: null, amount: 15, vendor: 'Wispr Flow', description: 'March auto-renewal', paymentMethod: 'auto-payment', status: 'pending', receiptId: null, tags: ['recurring'] },
 ];
 
 export const SAMPLE_PROJECTS = [
