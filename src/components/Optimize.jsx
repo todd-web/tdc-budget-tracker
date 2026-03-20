@@ -204,10 +204,10 @@ export default function Optimize() {
                     {priority.label}
                   </span>
                   <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${
-                    rec.status === 'complete' ? 'bg-green-50 text-tdc-green' :
-                    rec.status === 'in-progress' ? 'bg-amber-50 text-tdc-gold' :
-                    rec.status === 'monitoring' ? 'bg-purple-50 text-purple-600' :
-                    'bg-amber-50 text-amber-600'
+                    rec.status === 'complete' ? 'bg-tdc-cream text-tdc-green' :
+                    rec.status === 'in-progress' ? 'bg-tdc-cream text-tdc-gold' :
+                    rec.status === 'monitoring' ? 'bg-tdc-gray-100 text-tdc-dark-gray' :
+                    'bg-tdc-cream text-tdc-gold-dark'
                   }`}>
                     {rec.status === 'complete' ? 'Done' :
                      rec.status === 'in-progress' ? 'In Progress' :

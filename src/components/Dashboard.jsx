@@ -230,11 +230,11 @@ export default function Dashboard() {
 
 function KPICard({ title, value, subtitle, icon, color }) {
   const colorMap = {
-    gold: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
-    green: { bg: 'bg-emerald-50', text: 'text-emerald-600', border: 'border-emerald-200' },
-    red: { bg: 'bg-red-50', text: 'text-red-600', border: 'border-red-200' },
-    yellow: { bg: 'bg-amber-50', text: 'text-amber-600', border: 'border-amber-200' },
-    dark: { bg: 'bg-neutral-50', text: 'text-neutral-700', border: 'border-neutral-200' },
+    gold: { bg: 'bg-tdc-cream', text: 'text-tdc-gold-dark', border: 'border-tdc-gold' },
+    green: { bg: 'bg-tdc-cream', text: 'text-tdc-gold-dark', border: 'border-tdc-gold' },
+    red: { bg: 'bg-tdc-gray-100', text: 'text-tdc-dark', border: 'border-tdc-gray-300' },
+    yellow: { bg: 'bg-tdc-cream', text: 'text-tdc-gold-dark', border: 'border-tdc-gold' },
+    dark: { bg: 'bg-tdc-gray-100', text: 'text-tdc-dark-gray', border: 'border-tdc-gray-300' },
   };
   const c = colorMap[color] || colorMap.gold;
   return (

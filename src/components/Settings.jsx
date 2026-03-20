@@ -101,45 +101,45 @@ export default function Settings() {
         </div>
 
         {importStatus && (
-          <div className={`p-3 rounded-lg text-sm ${importStatus.type === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
+          <div className={`p-3 rounded-lg text-sm ${importStatus.type === 'success' ? 'bg-tdc-cream text-tdc-gold-dark' : 'bg-tdc-gray-100 text-tdc-dark'}`}>
             {importStatus.type === 'success' ? <Check size={14} className="inline mr-1" /> : <AlertTriangle size={14} className="inline mr-1" />}
             {importStatus.message}
           </div>
         )}
 
-        <div className="flex items-center justify-between p-3 bg-amber-50 rounded-lg border border-amber-200">
+        <div className="flex items-center justify-between p-3 bg-tdc-cream rounded-lg border border-tdc-gold">
           <div>
-            <div className="text-sm font-medium text-amber-800">Reset to Sample Data</div>
-            <div className="text-xs text-amber-600">Replace current data with built-in sample data</div>
+            <div className="text-sm font-medium text-tdc-gold-dark">Reset to Sample Data</div>
+            <div className="text-xs text-tdc-gold-dark">Replace current data with built-in sample data</div>
           </div>
           {showConfirmReset ? (
             <div className="flex gap-2">
               <button onClick={() => setShowConfirmReset(false)} className="px-3 py-2 text-sm border border-tdc-gray-300 rounded-lg">Cancel</button>
-              <button onClick={() => { resetToSample(); setShowConfirmReset(false); }} className="flex items-center gap-1.5 px-3 py-2 text-sm bg-amber-500 text-white rounded-lg">
+              <button onClick={() => { resetToSample(); setShowConfirmReset(false); }} className="flex items-center gap-1.5 px-3 py-2 text-sm bg-tdc-cream0 text-white rounded-lg">
                 <RefreshCw size={14} /> Confirm Reset
               </button>
             </div>
           ) : (
-            <button onClick={() => setShowConfirmReset(true)} className="flex items-center gap-1.5 px-3 py-2 text-sm border border-amber-300 rounded-lg text-amber-700 hover:bg-amber-100">
+            <button onClick={() => setShowConfirmReset(true)} className="flex items-center gap-1.5 px-3 py-2 text-sm border border-tdc-gold rounded-lg text-tdc-gold-dark hover:bg-tdc-cream">
               <RefreshCw size={14} /> Reset
             </button>
           )}
         </div>
 
-        <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-200">
+        <div className="flex items-center justify-between p-3 bg-tdc-gray-100 rounded-lg border border-tdc-gray-300">
           <div>
-            <div className="text-sm font-medium text-red-800">Clear All Data</div>
-            <div className="text-xs text-red-600">Permanently delete all expenses, projects, and receipts</div>
+            <div className="text-sm font-medium text-tdc-dark">Clear All Data</div>
+            <div className="text-xs text-tdc-dark">Permanently delete all expenses, projects, and receipts</div>
           </div>
           {showConfirmClear ? (
             <div className="flex gap-2">
               <button onClick={() => setShowConfirmClear(false)} className="px-3 py-2 text-sm border border-tdc-gray-300 rounded-lg">Cancel</button>
-              <button onClick={() => { clearAll(); setShowConfirmClear(false); }} className="flex items-center gap-1.5 px-3 py-2 text-sm bg-red-500 text-white rounded-lg">
+              <button onClick={() => { clearAll(); setShowConfirmClear(false); }} className="flex items-center gap-1.5 px-3 py-2 text-sm bg-tdc-gray-1000 text-white rounded-lg">
                 <Trash2 size={14} /> Confirm Delete
               </button>
             </div>
           ) : (
-            <button onClick={() => setShowConfirmClear(true)} className="flex items-center gap-1.5 px-3 py-2 text-sm border border-red-300 rounded-lg text-red-700 hover:bg-red-100">
+            <button onClick={() => setShowConfirmClear(true)} className="flex items-center gap-1.5 px-3 py-2 text-sm border border-tdc-gray-300 rounded-lg text-tdc-dark hover:bg-tdc-gray-200">
               <Trash2 size={14} /> Clear All
             </button>
           )}

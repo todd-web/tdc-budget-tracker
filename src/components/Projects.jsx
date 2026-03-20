@@ -81,7 +81,7 @@ export default function Projects() {
                   </div>
                   <div className="flex gap-1">
                     <button onClick={() => setEditingId(project.id)} className="p-1 text-tdc-gray-400 hover:text-tdc-gold rounded"><Edit3 size={14} /></button>
-                    <button onClick={() => handleDelete(project.id)} className={`p-1 rounded ${confirmDelete === project.id ? 'text-tdc-red bg-red-50' : 'text-tdc-gray-400 hover:text-tdc-red'}`}>
+                    <button onClick={() => handleDelete(project.id)} className={`p-1 rounded ${confirmDelete === project.id ? 'text-tdc-red bg-tdc-gray-100' : 'text-tdc-gray-400 hover:text-tdc-red'}`}>
                       {confirmDelete === project.id ? <Check size={14} /> : <Trash2 size={14} />}
                     </button>
                   </div>

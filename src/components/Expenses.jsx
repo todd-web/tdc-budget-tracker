@@ -161,7 +161,7 @@ export default function Expenses() {
                     <td className="py-2.5 px-3 text-right">
                       <div className="flex items-center justify-end gap-1">
                         <button onClick={() => setEditingId(exp.id)} className="p-1 text-tdc-gray-400 hover:text-tdc-gold rounded"><Edit3 size={14} /></button>
-                        <button onClick={() => handleDelete(exp.id)} className={`p-1 rounded ${confirmDelete === exp.id ? 'text-tdc-red bg-red-50' : 'text-tdc-gray-400 hover:text-tdc-red'}`}>
+                        <button onClick={() => handleDelete(exp.id)} className={`p-1 rounded ${confirmDelete === exp.id ? 'text-tdc-red bg-tdc-gray-100' : 'text-tdc-gray-400 hover:text-tdc-red'}`}>
                           {confirmDelete === exp.id ? <Check size={14} /> : <Trash2 size={14} />}
                         </button>
                       </div>

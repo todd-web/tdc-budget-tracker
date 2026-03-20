@@ -120,7 +120,7 @@ export default function Receipts() {
 
                   {/* Link Status */}
                   {linkedExpense ? (
-                    <div className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-lg flex items-center gap-1">
+                    <div className="text-xs bg-tdc-cream text-tdc-gold-dark px-2 py-1 rounded-lg flex items-center gap-1">
                       <Check size={12} /> Linked: {linkedExpense.description?.substring(0, 30)}
                     </div>
                   ) : (
@@ -131,7 +131,7 @@ export default function Receipts() {
 
                   <div className="flex items-center justify-between pt-2 border-t border-tdc-gray-100">
                     <EditableField label="Vendor" value={receipt.vendor} onChange={v => updateReceipt({ ...receipt, vendor: v })} />
-                    <button onClick={() => handleDelete(receipt.id)} className={`p-1 rounded ${confirmDelete === receipt.id ? 'text-tdc-red bg-red-50' : 'text-tdc-gray-400 hover:text-tdc-red'}`}>
+                    <button onClick={() => handleDelete(receipt.id)} className={`p-1 rounded ${confirmDelete === receipt.id ? 'text-tdc-red bg-tdc-gray-100' : 'text-tdc-gray-400 hover:text-tdc-red'}`}>
                       {confirmDelete === receipt.id ? <Check size={14} /> : <Trash2 size={14} />}
                     </button>
                   </div>
