@@ -205,7 +205,7 @@ export default function Optimize() {
                   </span>
                   <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${
                     rec.status === 'complete' ? 'bg-green-50 text-tdc-green' :
-                    rec.status === 'in-progress' ? 'bg-blue-50 text-tdc-blue' :
+                    rec.status === 'in-progress' ? 'bg-blue-50 text-tdc-gold' :
                     rec.status === 'monitoring' ? 'bg-purple-50 text-purple-600' :
                     'bg-amber-50 text-amber-600'
                   }`}>

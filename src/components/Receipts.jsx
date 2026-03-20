@@ -72,9 +72,8 @@ export default function Receipts() {
         <div>
           <h2 className="text-lg font-semibold text-tdc-gray-800">Receipt Manager</h2>
           <p className="text-sm text-tdc-gray-500">{receipts.length} receipts uploaded, {receipts.filter(r => r.linkedExpenseId).length} linked to expenses</p>
-          <p className="text-xs text-tdc-orange mt-1">Google Drive storage and OCR auto-processing coming in Phase 2</p>
         </div>
-        <button onClick={() => setShowUpload(true)} className="flex items-center gap-1.5 px-4 py-2 text-sm bg-tdc-blue text-white rounded-lg hover:bg-tdc-blue-light shadow-sm">
+        <button onClick={() => setShowUpload(true)} className="flex items-center gap-1.5 px-4 py-2 text-sm bg-tdc-gold text-white rounded-lg hover:bg-tdc-gold-light shadow-sm">
           <Upload size={14} /> Upload Receipt
         </button>
       </div>
@@ -88,7 +87,7 @@ export default function Receipts() {
           <Image size={48} className="mx-auto text-tdc-gray-300 mb-3" />
           <h3 className="font-medium text-tdc-gray-700 mb-1">No receipts yet</h3>
           <p className="text-sm text-tdc-gray-500 mb-4">Upload receipts via image file or URL to get started</p>
-          <button onClick={() => setShowUpload(true)} className="px-4 py-2 text-sm bg-tdc-blue text-white rounded-lg hover:bg-tdc-blue-light">Upload First Receipt</button>
+          <button onClick={() => setShowUpload(true)} className="px-4 py-2 text-sm bg-tdc-gold text-white rounded-lg hover:bg-tdc-gold-light">Upload First Receipt</button>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -125,7 +124,7 @@ export default function Receipts() {
                       <Check size={12} /> Linked: {linkedExpense.description?.substring(0, 30)}
                     </div>
                   ) : (
-                    <button onClick={() => setShowLinkModal(receipt.id)} className="text-xs text-tdc-blue hover:underline flex items-center gap-1">
+                    <button onClick={() => setShowLinkModal(receipt.id)} className="text-xs text-tdc-gold hover:underline flex items-center gap-1">
                       <Link2 size={12} /> Link to expense
                     </button>
                   )}
@@ -182,7 +181,7 @@ export default function Receipts() {
             ) : (
               <div className="p-12 text-center text-tdc-gray-500">
                 <ExternalLink size={32} className="mx-auto mb-2" />
-                <a href={selectedReceipt.driveUrl} target="_blank" rel="noopener noreferrer" className="text-tdc-blue hover:underline">Open external URL</a>
+                <a href={selectedReceipt.driveUrl} target="_blank" rel="noopener noreferrer" className="text-tdc-gold hover:underline">Open external URL</a>
               </div>
             )}
           </div>
@@ -205,17 +204,17 @@ function UploadModal({ onFileUpload, onUrlUpload, onClose, fileRef, onDrop }) {
         </div>
         <div className="p-5">
           <div className="flex gap-2 mb-4">
-            <button onClick={() => setMode('file')} className={`flex-1 py-2 text-sm rounded-lg ${mode === 'file' ? 'bg-tdc-blue text-white' : 'bg-tdc-gray-100 text-tdc-gray-600'}`}>
+            <button onClick={() => setMode('file')} className={`flex-1 py-2 text-sm rounded-lg ${mode === 'file' ? 'bg-tdc-gold text-white' : 'bg-tdc-gray-100 text-tdc-gray-600'}`}>
               <Image size={14} className="inline mr-1.5" />Upload File
             </button>
-            <button onClick={() => setMode('url')} className={`flex-1 py-2 text-sm rounded-lg ${mode === 'url' ? 'bg-tdc-blue text-white' : 'bg-tdc-gray-100 text-tdc-gray-600'}`}>
+            <button onClick={() => setMode('url')} className={`flex-1 py-2 text-sm rounded-lg ${mode === 'url' ? 'bg-tdc-gold text-white' : 'bg-tdc-gray-100 text-tdc-gray-600'}`}>
               <Link2 size={14} className="inline mr-1.5" />URL
             </button>
           </div>
 
           {mode === 'file' ? (
             <div onDragOver={e => e.preventDefault()} onDrop={onDrop}
-              className="border-2 border-dashed border-tdc-gray-300 rounded-xl p-8 text-center hover:border-tdc-blue transition-colors cursor-pointer"
+              className="border-2 border-dashed border-tdc-gray-300 rounded-xl p-8 text-center hover:border-tdc-gold transition-colors cursor-pointer"
               onClick={() => fileRef.current?.click()}>
               <Upload size={32} className="mx-auto text-tdc-gray-400 mb-2" />
               <p className="text-sm text-tdc-gray-600 mb-1">Drag and drop or click to browse</p>
@@ -226,8 +225,8 @@ function UploadModal({ onFileUpload, onUrlUpload, onClose, fileRef, onDrop }) {
           ) : (
             <div className="space-y-3">
               <input type="url" placeholder="https://drive.google.com/..." value={url} onChange={e => setUrl(e.target.value)}
-                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-blue/20" />
-              <button onClick={() => onUrlUpload(url)} disabled={!url} className="w-full py-2 text-sm bg-tdc-blue text-white rounded-lg hover:bg-tdc-blue-light disabled:opacity-50">
+                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-gold/20" />
+              <button onClick={() => onUrlUpload(url)} disabled={!url} className="w-full py-2 text-sm bg-tdc-gold text-white rounded-lg hover:bg-tdc-gold-light disabled:opacity-50">
                 Add Receipt from URL
               </button>
             </div>
@@ -247,11 +246,11 @@ function EditableField({ label, value, onChange }) {
       <input autoFocus type="text" value={val} onChange={e => setVal(e.target.value)}
         onBlur={() => { onChange(val); setEditing(false); }}
         onKeyDown={e => { if (e.key === 'Enter') { onChange(val); setEditing(false); } }}
-        className="text-xs px-2 py-1 border border-tdc-gray-200 rounded w-28 focus:outline-none focus:ring-1 focus:ring-tdc-blue/20" />
+        className="text-xs px-2 py-1 border border-tdc-gray-200 rounded w-28 focus:outline-none focus:ring-1 focus:ring-tdc-gold/20" />
     );
   }
   return (
-    <button onClick={() => setEditing(true)} className="text-xs text-tdc-gray-500 hover:text-tdc-blue">
+    <button onClick={() => setEditing(true)} className="text-xs text-tdc-gray-500 hover:text-tdc-gold">
       {value || `Add ${label.toLowerCase()}`}
     </button>
   );

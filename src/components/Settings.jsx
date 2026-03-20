@@ -82,7 +82,7 @@ export default function Settings() {
             <div className="text-sm font-medium text-tdc-gray-700">Export Data</div>
             <div className="text-xs text-tdc-gray-500">Download all data as JSON (backup)</div>
           </div>
-          <button onClick={handleExport} className="flex items-center gap-1.5 px-3 py-2 text-sm bg-tdc-blue text-white rounded-lg hover:bg-tdc-blue-light">
+          <button onClick={handleExport} className="flex items-center gap-1.5 px-3 py-2 text-sm bg-tdc-gold text-white rounded-lg hover:bg-tdc-gold-light">
             <Download size={14} /> Export JSON
           </button>
         </div>

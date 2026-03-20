@@ -73,7 +73,7 @@ export default function Expenses() {
           <button onClick={exportCSV} className="flex items-center gap-1.5 px-3 py-2 text-sm border border-tdc-gray-300 rounded-lg text-tdc-gray-700 hover:bg-tdc-gray-50">
             <Download size={14} /> Export CSV
           </button>
-          <button onClick={() => setShowAddForm(true)} className="flex items-center gap-1.5 px-4 py-2 text-sm bg-tdc-blue text-white rounded-lg hover:bg-tdc-blue-light shadow-sm">
+          <button onClick={() => setShowAddForm(true)} className="flex items-center gap-1.5 px-4 py-2 text-sm bg-tdc-gold text-white rounded-lg hover:bg-tdc-gold-light shadow-sm">
             <Plus size={14} /> Add Expense
           </button>
         </div>
@@ -85,20 +85,20 @@ export default function Expenses() {
           <div className="flex-1 min-w-[200px] relative">
             <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-tdc-gray-400" />
             <input type="text" placeholder="Search expenses..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-blue/20 focus:border-tdc-blue" />
+              className="w-full pl-9 pr-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-gold/20 focus:border-tdc-gold" />
           </div>
           <select value={filterCategory} onChange={e => setFilterCategory(e.target.value)}
-            className="px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-blue/20">
+            className="px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-gold/20">
             <option value="all">All Categories</option>
             {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
           </select>
           <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)}
-            className="px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-blue/20">
+            className="px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-gold/20">
             <option value="all">All Statuses</option>
             {EXPENSE_STATUSES.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
           </select>
           <select value={filterDuration} onChange={e => setFilterDuration(e.target.value)}
-            className="px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-blue/20">
+            className="px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-gold/20">
             <option value="all">All Time</option>
             <option value="week">This Week</option>
             <option value="month">This Month</option>
@@ -154,13 +154,13 @@ export default function Expenses() {
                     <td className="py-2.5 px-3 text-tdc-gray-600">{exp.vendor}</td>
                     <td className="py-2.5 px-3 text-right font-medium">{formatCurrency(exp.amount)}</td>
                     <td className="py-2.5 px-3">
-                      <span className="text-xs font-medium px-2 py-0.5 rounded-full" style={{ backgroundColor: (statusObj?.color || '#94a3b8') + '20', color: statusObj?.color }}>
+                      <span className="text-xs font-medium px-2 py-0.5 rounded-full" style={{ backgroundColor: (statusObj?.color || '#A5A6A5') + '20', color: statusObj?.color }}>
                         {statusObj?.name || exp.status}
                       </span>
                     </td>
                     <td className="py-2.5 px-3 text-right">
                       <div className="flex items-center justify-end gap-1">
-                        <button onClick={() => setEditingId(exp.id)} className="p-1 text-tdc-gray-400 hover:text-tdc-blue rounded"><Edit3 size={14} /></button>
+                        <button onClick={() => setEditingId(exp.id)} className="p-1 text-tdc-gray-400 hover:text-tdc-gold rounded"><Edit3 size={14} /></button>
                         <button onClick={() => handleDelete(exp.id)} className={`p-1 rounded ${confirmDelete === exp.id ? 'text-tdc-red bg-red-50' : 'text-tdc-gray-400 hover:text-tdc-red'}`}>
                           {confirmDelete === exp.id ? <Check size={14} /> : <Trash2 size={14} />}
                         </button>
@@ -237,18 +237,18 @@ function ExpenseForm({ expense, categories, projects, onSave, onCancel, isEditin
             <div>
               <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Date *</label>
               <input type="date" value={form.date} onChange={e => setForm(f => ({ ...f, date: e.target.value }))}
-                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-blue/20" required />
+                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-gold/20" required />
             </div>
             <div>
               <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Amount *</label>
               <input type="number" step="0.01" min="0" placeholder="0.00" value={form.amount} onChange={e => setForm(f => ({ ...f, amount: e.target.value }))}
-                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-blue/20" required />
+                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-gold/20" required />
             </div>
           </div>
           <div>
             <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Category *</label>
             <select value={form.categoryId} onChange={e => setForm(f => ({ ...f, categoryId: e.target.value, subcategoryId: '', itemId: '' }))}
-              className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-blue/20" required>
+              className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-gold/20" required>
               <option value="">Select category</option>
               {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
             </select>
@@ -257,7 +257,7 @@ function ExpenseForm({ expense, categories, projects, onSave, onCancel, isEditin
             <div>
               <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Subcategory</label>
               <select value={form.subcategoryId} onChange={e => setForm(f => ({ ...f, subcategoryId: e.target.value, itemId: '' }))}
-                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-blue/20">
+                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-gold/20">
                 <option value="">Select subcategory</option>
                 {subcategories.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
               </select>
@@ -267,7 +267,7 @@ function ExpenseForm({ expense, categories, projects, onSave, onCancel, isEditin
             <div>
               <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Budget Line Item</label>
               <select value={form.itemId} onChange={e => setForm(f => ({ ...f, itemId: e.target.value }))}
-                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-blue/20">
+                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-gold/20">
                 <option value="">Select item</option>
                 {items.map(i => <option key={i.id} value={i.id}>{i.name} ({formatCurrency(i.budget)})</option>)}
               </select>
@@ -276,25 +276,25 @@ function ExpenseForm({ expense, categories, projects, onSave, onCancel, isEditin
           <div>
             <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Vendor</label>
             <input type="text" placeholder="Vendor name" value={form.vendor} onChange={e => setForm(f => ({ ...f, vendor: e.target.value }))}
-              className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-blue/20" />
+              className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-gold/20" />
           </div>
           <div>
             <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Description</label>
             <textarea rows={2} placeholder="Expense description" value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
-              className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-blue/20 resize-none" />
+              className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-gold/20 resize-none" />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Payment Method</label>
               <select value={form.paymentMethod} onChange={e => setForm(f => ({ ...f, paymentMethod: e.target.value }))}
-                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-blue/20">
+                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-gold/20">
                 {PAYMENT_METHODS.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
               </select>
             </div>
             <div>
               <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Status</label>
               <select value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value }))}
-                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-blue/20">
+                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-gold/20">
                 {EXPENSE_STATUSES.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
               </select>
             </div>
@@ -302,7 +302,7 @@ function ExpenseForm({ expense, categories, projects, onSave, onCancel, isEditin
           <div>
             <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Project (optional)</label>
             <select value={form.projectId} onChange={e => setForm(f => ({ ...f, projectId: e.target.value }))}
-              className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-blue/20">
+              className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-tdc-gold/20">
               <option value="">No project</option>
               {projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
             </select>
@@ -311,7 +311,7 @@ function ExpenseForm({ expense, categories, projects, onSave, onCancel, isEditin
             <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Tags</label>
             <div className="flex gap-2">
               <input type="text" placeholder="Add tag" value={tagInput} onChange={e => setTagInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && (e.preventDefault(), addTag())}
-                className="flex-1 px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-blue/20" />
+                className="flex-1 px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-gold/20" />
               <button type="button" onClick={addTag} className="px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg text-tdc-gray-600 hover:bg-tdc-gray-50">Add</button>
             </div>
             {form.tags.length > 0 && (
@@ -327,7 +327,7 @@ function ExpenseForm({ expense, categories, projects, onSave, onCancel, isEditin
           </div>
           <div className="flex justify-end gap-3 pt-3 border-t border-tdc-gray-200">
             <button type="button" onClick={onCancel} className="px-4 py-2 text-sm border border-tdc-gray-300 rounded-lg text-tdc-gray-700 hover:bg-tdc-gray-50">Cancel</button>
-            <button type="submit" className="px-4 py-2 text-sm bg-tdc-blue text-white rounded-lg hover:bg-tdc-blue-light shadow-sm">{isEditing ? 'Save Changes' : 'Add Expense'}</button>
+            <button type="submit" className="px-4 py-2 text-sm bg-tdc-gold text-white rounded-lg hover:bg-tdc-gold-light shadow-sm">{isEditing ? 'Save Changes' : 'Add Expense'}</button>
           </div>
         </form>
       </div>

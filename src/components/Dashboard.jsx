@@ -58,7 +58,7 @@ export default function Dashboard() {
               key={opt.id}
               onClick={() => setDuration(opt.id)}
               className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
-                duration === opt.id ? 'bg-white text-tdc-blue shadow-sm' : 'text-tdc-gray-500 hover:text-tdc-gray-700'
+                duration === opt.id ? 'bg-white text-tdc-gold shadow-sm' : 'text-tdc-gray-500 hover:text-tdc-gray-700'
               }`}
             >
               {opt.label}
@@ -145,7 +145,7 @@ export default function Dashboard() {
               <YAxis tick={{ fontSize: 12 }} tickFormatter={v => `$${(v/1000).toFixed(0)}k`} />
               <Tooltip formatter={v => formatCurrency(v)} />
               <Legend />
-              <Bar dataKey="Budget" fill="#cbd5e1" radius={[4,4,0,0]} />
+              <Bar dataKey="Budget" fill="#EAEBEC" radius={[4,4,0,0]} />
               <Bar dataKey="Spent" radius={[4,4,0,0]}>
                 {budgetBarData.map((entry, i) => <Cell key={i} fill={entry.fill} />)}
               </Bar>
@@ -181,9 +181,9 @@ export default function Dashboard() {
             <YAxis tick={{ fontSize: 12 }} tickFormatter={v => `$${(v/1000).toFixed(0)}k`} />
             <Tooltip formatter={v => formatCurrency(v)} />
             <Legend />
-            <Bar dataKey="total" fill="#3b82f6" opacity={0.3} name="Monthly Spend" radius={[4,4,0,0]} />
-            <Line type="monotone" dataKey="cumulative" stroke="#2563eb" strokeWidth={2} name="Cumulative Spend" dot={{ r: 4 }} />
-            <Line type="monotone" dataKey="budgetPace" stroke="#94a3b8" strokeWidth={2} strokeDasharray="5 5" name="Budget Pace" dot={false} />
+            <Bar dataKey="total" fill="#A48450" opacity={0.3} name="Monthly Spend" radius={[4,4,0,0]} />
+            <Line type="monotone" dataKey="cumulative" stroke="#A48450" strokeWidth={2} name="Cumulative Spend" dot={{ r: 4 }} />
+            <Line type="monotone" dataKey="budgetPace" stroke="#A5A6A5" strokeWidth={2} strokeDasharray="5 5" name="Budget Pace" dot={false} />
           </ComposedChart>
         </ResponsiveContainer>
       </div>

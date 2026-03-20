@@ -128,7 +128,7 @@ export default function Reports() {
         {/* Report Header */}
         <div className="bg-white rounded-xl border border-tdc-gray-200 p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
-            <FileText size={24} className="text-tdc-blue" />
+            <FileText size={24} className="text-tdc-gold" />
             <div>
               <h3 className="font-bold text-tdc-gray-900 text-lg">TDC Expert Team - Budget Report</h3>
               <p className="text-sm text-tdc-gray-500">{periodLabel}</p>
@@ -193,7 +193,7 @@ export default function Reports() {
               <YAxis tick={{ fontSize: 12 }} tickFormatter={v => `$${(v/1000).toFixed(1)}k`} />
               <Tooltip formatter={v => formatCurrency(v)} />
               <Bar dataKey="total" radius={[4,4,0,0]} name="Spend">
-                {quarterlyTotals.map((entry, i) => <Cell key={i} fill={['#2563eb', '#10b981', '#8b5cf6', '#f59e0b'][i]} />)}
+                {quarterlyTotals.map((entry, i) => <Cell key={i} fill={['#A48450', '#404752', '#1A1A1A', '#A5A6A5'][i]} />)}
               </Bar>
             </BarChart>
           </ResponsiveContainer>

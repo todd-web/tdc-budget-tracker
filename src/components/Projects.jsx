@@ -4,8 +4,8 @@ import { formatCurrency, sumExpenses, getPercentage, getStatusColor, generateId 
 import { Plus, FolderOpen, Trash2, Edit3, X, Check, Calendar, DollarSign } from 'lucide-react';
 
 const PROJECT_STATUSES = [
-  { id: 'planned', name: 'Planned', color: '#94a3b8' },
-  { id: 'active', name: 'Active', color: '#2563eb' },
+  { id: 'planned', name: 'Planned', color: '#A5A6A5' },
+  { id: 'active', name: 'Active', color: '#A48450' },
   { id: 'completed', name: 'Completed', color: '#10b981' },
   { id: 'cancelled', name: 'Cancelled', color: '#ef4444' },
 ];
@@ -37,7 +37,7 @@ export default function Projects() {
             <option value="all">All Statuses</option>
             {PROJECT_STATUSES.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
           </select>
-          <button onClick={() => setShowAddForm(true)} className="flex items-center gap-1.5 px-4 py-2 text-sm bg-tdc-blue text-white rounded-lg hover:bg-tdc-blue-light shadow-sm">
+          <button onClick={() => setShowAddForm(true)} className="flex items-center gap-1.5 px-4 py-2 text-sm bg-tdc-gold text-white rounded-lg hover:bg-tdc-gold-light shadow-sm">
             <Plus size={14} /> Add Project
           </button>
         </div>
@@ -74,13 +74,13 @@ export default function Projects() {
                           {cat.name}
                         </span>
                       )}
-                      <span className="text-xs font-medium px-2 py-0.5 rounded-full" style={{ backgroundColor: (status?.color || '#94a3b8') + '20', color: status?.color }}>
+                      <span className="text-xs font-medium px-2 py-0.5 rounded-full" style={{ backgroundColor: (status?.color || '#A5A6A5') + '20', color: status?.color }}>
                         {status?.name}
                       </span>
                     </div>
                   </div>
                   <div className="flex gap-1">
-                    <button onClick={() => setEditingId(project.id)} className="p-1 text-tdc-gray-400 hover:text-tdc-blue rounded"><Edit3 size={14} /></button>
+                    <button onClick={() => setEditingId(project.id)} className="p-1 text-tdc-gray-400 hover:text-tdc-gold rounded"><Edit3 size={14} /></button>
                     <button onClick={() => handleDelete(project.id)} className={`p-1 rounded ${confirmDelete === project.id ? 'text-tdc-red bg-red-50' : 'text-tdc-gray-400 hover:text-tdc-red'}`}>
                       {confirmDelete === project.id ? <Check size={14} /> : <Trash2 size={14} />}
                     </button>
@@ -175,7 +175,7 @@ function ProjectForm({ project, categories, onSave, onCancel, isEditing = false 
           <div>
             <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Project Name *</label>
             <input type="text" value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-              placeholder="e.g., Expert Office Hours Q1" className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-blue/20" required />
+              placeholder="e.g., Expert Office Hours Q1" className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-gold/20" required />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -189,24 +189,24 @@ function ProjectForm({ project, categories, onSave, onCancel, isEditing = false 
             <div>
               <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Budget</label>
               <input type="number" step="0.01" min="0" value={form.budget} onChange={e => setForm(f => ({ ...f, budget: e.target.value }))}
-                placeholder="0.00" className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-blue/20" />
+                placeholder="0.00" className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-gold/20" />
             </div>
           </div>
           <div>
             <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Description</label>
             <textarea rows={2} value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
-              className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-blue/20 resize-none" />
+              className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-gold/20 resize-none" />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-medium text-tdc-gray-600 mb-1">Start Date</label>
               <input type="date" value={form.startDate} onChange={e => setForm(f => ({ ...f, startDate: e.target.value }))}
-                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-blue/20" />
+                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-gold/20" />
             </div>
             <div>
               <label className="block text-xs font-medium text-tdc-gray-600 mb-1">End Date</label>
               <input type="date" value={form.endDate} onChange={e => setForm(f => ({ ...f, endDate: e.target.value }))}
-                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-blue/20" />
+                className="w-full px-3 py-2 text-sm border border-tdc-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-tdc-gold/20" />
             </div>
           </div>
           <div>
@@ -218,7 +218,7 @@ function ProjectForm({ project, categories, onSave, onCancel, isEditing = false 
           </div>
           <div className="flex justify-end gap-3 pt-3 border-t border-tdc-gray-200">
             <button type="button" onClick={onCancel} className="px-4 py-2 text-sm border border-tdc-gray-300 rounded-lg text-tdc-gray-700 hover:bg-tdc-gray-50">Cancel</button>
-            <button type="submit" className="px-4 py-2 text-sm bg-tdc-blue text-white rounded-lg hover:bg-tdc-blue-light shadow-sm">{isEditing ? 'Save' : 'Create Project'}</button>
+            <button type="submit" className="px-4 py-2 text-sm bg-tdc-gold text-white rounded-lg hover:bg-tdc-gold-light shadow-sm">{isEditing ? 'Save' : 'Create Project'}</button>
           </div>
         </form>
       </div>
