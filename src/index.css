@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  /* TDC Brand Colors - from logo (black/white/gold) */
-  --color-tdc-black: #0D0D0D;
+  /* TDC Official Brand Colors (from design system) */
+  --color-tdc-black: #000000;
   --color-tdc-dark: #1A1A1A;
-  --color-tdc-gold: #C4A265;
-  --color-tdc-gold-light: #D4B87A;
-  --color-tdc-gold-dark: #A68942;
+  --color-tdc-gold: #A48450;
+  --color-tdc-gold-light: #C5A572;
+  --color-tdc-gold-dark: #876B3E;
+  --color-tdc-cream: #EDE7DB;
   --color-tdc-white: #FFFFFF;
+  --color-tdc-dark-gray: #404752;
 
   /* Functional Colors */
   --color-tdc-green: #2BB673;
