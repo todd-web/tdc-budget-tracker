@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer, useEffect } from 'react';
 import { CATEGORIES, SAMPLE_EXPENSES, SAMPLE_PROJECTS } from '../data/budgetStructure';
 
 const BudgetContext = createContext(null);
-const STORAGE_KEY = 'tdc-budget-tracker-v1';
+const STORAGE_KEY = 'tdc-budget-tracker-v2';
 
 function loadState() {
   try {
