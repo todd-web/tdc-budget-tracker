@@ -1,5 +1,6 @@
 // TDC Expert Team 2026 Budget Structure
 // Source: 2026 Expert Team Strategic Plan v2 (12/8/2025)
+// Updated 2026-03-20 with real expense data from TDC email receipts
 
 export const BUDGET_YEAR = 2026;
 
@@ -7,25 +8,25 @@ export const CATEGORIES = [
   {
     id: 'operational',
     name: 'Operational',
-    color: '#2563eb',
-    totalBudget: 6750,
+    color: '#E8490F',
     description: 'Platform management, vetting, automation, and team enablement',
     subcategories: [
       {
         id: 'op-platforms',
         name: 'Operational Platforms',
         items: [
-          { id: 'streak-crm', name: 'Streak CRM', budget: 1656, period: 'annual', notes: '$69 x 2 users x 12 months (currently on monthly)', monthlyAmount: 138 },
-          { id: 'jace-ai', name: 'Jace.AI', budget: 200, period: 'annual', notes: 'Annual plan for 2 users' },
-          { id: 'chatgpt-pro', name: 'ChatGPT Pro', budget: 2400, period: 'annual', notes: '$200/month for 1 account', monthlyAmount: 200 },
+          { id: 'streak-crm', name: 'Streak CRM', budget: 1656, period: 'annual', notes: '$69 x 2 users x 12 months (company-paid, no billing emails found in Expert Team inbox)', monthlyAmount: 138 },
+          { id: 'jace-ai', name: 'Jace.AI', budget: 200, period: 'annual', notes: 'Monthly receipts confirmed Jan-Mar 2026', monthlyAmount: 17 },
+          { id: 'chatgpt-pro', name: 'ChatGPT Pro', budget: 400, period: 'annual', notes: 'STOPPED after February 2026. Only Jan + Feb charged at $200/mo', monthlyAmount: 200, stoppedDate: '2026-02-28' },
+          { id: 'wispr-flow', name: 'Wispr Flow', budget: 240, period: 'annual', notes: 'New tool - Todd testing since Feb 2026. Receipts confirmed Feb/Mar. Forwarded to Kyle for approval.', monthlyAmount: 20, isNew: true },
         ]
       },
       {
         id: 'op-vetting',
         name: 'Vetting Tools',
         items: [
-          { id: 'background-check', name: 'Universal Background Check', budget: 690, period: 'annual', notes: '$69/expert - estimated 10 experts', isVariable: true, unitCost: 69, unit: 'expert' },
-          { id: 'people-looker', name: 'PeopleLooker.com', budget: 240, period: 'annual', notes: 'Looking into annual discount' },
+          { id: 'background-check', name: 'Universal Background Check', budget: 4140, period: 'annual', notes: '$69/expert. 24 checks found in email YTD (Jan-Mar). Projected ~60/year at current pace = $4,140.', isVariable: true, unitCost: 69, unit: 'expert' },
+          { id: 'people-looker', name: 'PeopleLooker.com', budget: 240, period: 'annual', notes: 'Looking into annual discount. No receipt found in email yet.' },
         ]
       },
       {
@@ -42,6 +43,7 @@ export const CATEGORIES = [
         items: [
           { id: 'ld-certifications', name: 'L&D / Additional Certifications', budget: 1500, period: 'annual', notes: 'Professional development trainings' },
           { id: 'process-docs', name: 'Internal Process Documenting Tools', budget: 0, period: 'annual', notes: 'TBD - not yet allocated', isTBD: true },
+          { id: 'hp-laptop', name: 'HP Laptop (Equipment)', budget: 0, period: 'annual', notes: 'Jan 20 purchase via Amazon. Receipt sent to Kyle. One-time equipment cost.', isOneTime: true },
         ]
       },
     ]
@@ -49,15 +51,14 @@ export const CATEGORIES = [
   {
     id: 'recruitment',
     name: 'Recruitment',
-    color: '#10b981',
-    totalBudget: 6500,
+    color: '#2BB673',
     description: 'Platforms, conferences, paid ads, and rapid response sourcing',
     subcategories: [
       {
         id: 'rec-platforms',
         name: 'Recruitment Platforms',
         items: [
-          { id: 'workable', name: 'Workable Annual License', budget: 3588, period: 'annual', notes: 'Primary recruiting system' },
+          { id: 'workable', name: 'Workable', budget: 6900, period: 'annual', notes: 'Currently on monthly billing ($555 Jan, $575 Feb+). Annual transition invoice pending (due 3/24). Strategic plan had $3,588/yr annual rate.', monthlyAmount: 575 },
           { id: 'backstage', name: 'Backstage', budget: 0, period: 'annual', notes: 'Free creator-focused pipeline' },
           { id: 'new-platform-test', name: 'New Platform Testing (1-2 tools)', budget: 750, period: 'annual', notes: 'Budget for experimentation' },
         ]
@@ -93,8 +94,7 @@ export const CATEGORIES = [
   {
     id: 'engagement',
     name: 'Engagement',
-    color: '#8b5cf6',
-    totalBudget: 3250,
+    color: '#1A1A2E',
     description: 'In-person events, digital engagement, AI tools, and community programming',
     subcategories: [
       {
@@ -102,7 +102,7 @@ export const CATEGORIES = [
         name: 'Q1 Engagement',
         quarterBudget: 1850,
         items: [
-          { id: 'office-hours-q1', name: 'Office Hours (Q1)', budget: 100, period: 'quarter', quarter: 1, notes: 'Light refreshments' },
+          { id: 'office-hours-q1', name: 'Office Hours (Q1)', budget: 200, period: 'quarter', quarter: 1, notes: 'Light refreshments. March 25 at 2112. Budget corrected from $100 to $200.' },
           { id: 'ai-tools-test', name: 'AI Tools Test (4-6 tools)', budget: 750, period: 'quarter', quarter: 1, notes: 'Paid trials + test access' },
           { id: 'survey-tools', name: 'Survey Tools', budget: 0, period: 'quarter', quarter: 1, notes: 'Existing platform' },
           { id: 'ld-pilot', name: 'Expert L&D Programming Pilot', budget: 1000, period: 'quarter', quarter: 1, notes: 'Professional growth content & programming' },
@@ -114,7 +114,7 @@ export const CATEGORIES = [
         quarterBudget: 1350,
         items: [
           { id: 'community-sponsor', name: 'Community Sponsorship Opportunity', budget: 1000, period: 'quarter', quarter: 2, notes: 'Event sponsorship' },
-          { id: 'office-hours-q2', name: 'Office Hours (Q2)', budget: 100, period: 'quarter', quarter: 2, notes: 'Light refreshments' },
+          { id: 'office-hours-q2', name: 'Office Hours (Q2)', budget: 200, period: 'quarter', quarter: 2, notes: 'Light refreshments. Budget corrected to $200.' },
           { id: 'ai-tool-integration', name: 'AI Tool Integration (1-2 tools)', budget: 250, period: 'quarter', quarter: 2, notes: 'Extended use + integration' },
         ]
       },
@@ -138,6 +138,12 @@ export const CATEGORIES = [
   }
 ];
 
+// Compute totalBudget dynamically from line items (single source of truth)
+for (const cat of CATEGORIES) {
+  cat.totalBudget = cat.subcategories.reduce((catSum, sub) =>
+    catSum + sub.items.reduce((subSum, item) => subSum + item.budget, 0), 0);
+}
+
 export const GRAND_TOTAL = CATEGORIES.reduce((sum, cat) => sum + cat.totalBudget, 0);
 
 export const PAYMENT_METHODS = [
@@ -153,8 +159,8 @@ export const PAYMENT_METHODS = [
 
 export const EXPENSE_STATUSES = [
   { id: 'pending', name: 'Pending', color: '#f59e0b' },
-  { id: 'approved', name: 'Approved', color: '#10b981' },
-  { id: 'reimbursed', name: 'Reimbursed', color: '#2563eb' },
+  { id: 'approved', name: 'Approved', color: '#2BB673' },
+  { id: 'reimbursed', name: 'Reimbursed', color: '#E8490F' },
   { id: 'denied', name: 'Denied', color: '#ef4444' },
 ];
 
@@ -178,27 +184,41 @@ export function getAllBudgetItems() {
   return items;
 }
 
-// Sample expenses for demo/initial state
+// REAL expenses from TDC email receipts (2026 YTD as of March 20)
 export const SAMPLE_EXPENSES = [
-  { id: '1', date: '2026-01-01', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'streak-crm', projectId: null, amount: 138, vendor: 'Streak', description: 'January subscription - 2 users', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring'] },
-  { id: '2', date: '2026-01-01', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'chatgpt-pro', projectId: null, amount: 200, vendor: 'OpenAI', description: 'January ChatGPT Pro subscription', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring'] },
-  { id: '3', date: '2026-02-01', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'streak-crm', projectId: null, amount: 138, vendor: 'Streak', description: 'February subscription - 2 users', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring'] },
-  { id: '4', date: '2026-02-01', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'chatgpt-pro', projectId: null, amount: 200, vendor: 'OpenAI', description: 'February ChatGPT Pro subscription', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring'] },
-  { id: '5', date: '2026-03-01', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'streak-crm', projectId: null, amount: 138, vendor: 'Streak', description: 'March subscription - 2 users', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring'] },
-  { id: '6', date: '2026-03-01', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'chatgpt-pro', projectId: null, amount: 200, vendor: 'OpenAI', description: 'March ChatGPT Pro subscription', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring'] },
-  { id: '7', date: '2026-01-15', categoryId: 'recruitment', subcategoryId: 'rec-platforms', itemId: 'workable', projectId: null, amount: 3588, vendor: 'Workable', description: 'Annual Workable license', paymentMethod: 'invoice', status: 'approved', receiptId: null, tags: ['annual'] },
-  { id: '8', date: '2026-02-10', categoryId: 'operational', subcategoryId: 'op-vetting', itemId: 'background-check', projectId: null, amount: 69, vendor: 'Universal Background Screening', description: 'Background check - Expert #2301', paymentMethod: 'credit-card', status: 'approved', receiptId: null, tags: ['per-expert'] },
-  { id: '9', date: '2026-02-15', categoryId: 'operational', subcategoryId: 'op-vetting', itemId: 'background-check', projectId: null, amount: 69, vendor: 'Universal Background Screening', description: 'Background check - Expert #2315', paymentMethod: 'credit-card', status: 'approved', receiptId: null, tags: ['per-expert'] },
-  { id: '10', date: '2026-03-01', categoryId: 'operational', subcategoryId: 'op-vetting', itemId: 'people-looker', projectId: null, amount: 240, vendor: 'PeopleLooker', description: 'Annual subscription', paymentMethod: 'credit-card', status: 'approved', receiptId: null, tags: ['annual'] },
-  { id: '11', date: '2026-03-15', categoryId: 'engagement', subcategoryId: 'eng-q1', itemId: 'office-hours-q1', projectId: 'proj-office-hours-q1', amount: 53, vendor: 'Various', description: 'Snacks for Expert Office Hours event', paymentMethod: 'credit-card', status: 'approved', receiptId: null, tags: ['event'] },
-  { id: '12', date: '2026-01-20', categoryId: 'recruitment', subcategoryId: 'rec-conferences', itemId: 'conf-q1', projectId: null, amount: 45, vendor: 'Chicago Auto Show', description: 'Admission tickets x3', paymentMethod: 'credit-card', status: 'approved', receiptId: null, tags: ['conference'] },
-  { id: '13', date: '2026-02-05', categoryId: 'recruitment', subcategoryId: 'rec-paid-ads', itemId: 'ads-q1-pilot', projectId: null, amount: 350, vendor: 'Meta Ads', description: 'Expert recruitment campaign - February', paymentMethod: 'credit-card', status: 'approved', receiptId: null, tags: ['paid-ads'] },
-  { id: '14', date: '2026-03-05', categoryId: 'recruitment', subcategoryId: 'rec-paid-ads', itemId: 'ads-q1-pilot', projectId: null, amount: 400, vendor: 'Meta Ads', description: 'Expert recruitment campaign - March', paymentMethod: 'credit-card', status: 'approved', receiptId: null, tags: ['paid-ads'] },
+  // Workable - Monthly billing confirmed via email receipts
+  { id: '1', date: '2026-01-03', categoryId: 'recruitment', subcategoryId: 'rec-platforms', itemId: 'workable', projectId: null, amount: 555, vendor: 'Workable', description: 'January - Standard Recruiting monthly', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
+  { id: '2', date: '2026-02-28', categoryId: 'recruitment', subcategoryId: 'rec-platforms', itemId: 'workable', projectId: null, amount: 575, vendor: 'Workable', description: 'February - Standard Recruiting monthly (refund pending, transition to annual)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified', 'refund-pending'] },
+
+  // ChatGPT Pro - STOPPED after February per Todd
+  { id: '3', date: '2026-01-01', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'chatgpt-pro', projectId: null, amount: 200, vendor: 'OpenAI', description: 'January ChatGPT Pro subscription', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring'] },
+  { id: '4', date: '2026-02-01', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'chatgpt-pro', projectId: null, amount: 200, vendor: 'OpenAI', description: 'February ChatGPT Pro subscription (FINAL - cancelled)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'final'] },
+
+  // Jace AI - Monthly receipts confirmed via email
+  { id: '5', date: '2026-01-03', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'jace-ai', projectId: null, amount: 17, vendor: 'Jace AI', description: 'January subscription (receipt #2692-2076)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
+  { id: '6', date: '2026-02-04', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'jace-ai', projectId: null, amount: 17, vendor: 'Jace AI', description: 'February subscription (receipt #2425-4998)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
+  { id: '7', date: '2026-03-02', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'jace-ai', projectId: null, amount: 17, vendor: 'Jace AI', description: 'March subscription (receipt #2788-6658)', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified'] },
+
+  // Wispr Flow - New tool Todd is testing, receipts in email
+  { id: '8', date: '2026-02-22', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'wispr-flow', projectId: null, amount: 20, vendor: 'Wispr Flow', description: 'February subscription (receipt #2453-3488). Forwarded to Kyle.', paymentMethod: 'auto-payment', status: 'approved', receiptId: null, tags: ['recurring', 'verified', 'new-tool'] },
+  { id: '9', date: '2026-03-21', categoryId: 'operational', subcategoryId: 'op-platforms', itemId: 'wispr-flow', projectId: null, amount: 20, vendor: 'Wispr Flow', description: 'March auto-renewal', paymentMethod: 'auto-payment', status: 'pending', receiptId: null, tags: ['recurring'] },
+
+  // Office Hours event - actual spend confirmed
+  { id: '10', date: '2026-03-15', categoryId: 'engagement', subcategoryId: 'eng-q1', itemId: 'office-hours-q1', projectId: 'proj-office-hours-q1', amount: 53, vendor: 'Various', description: 'Snacks for Expert Office Hours event (March 25)', paymentMethod: 'credit-card', status: 'approved', receiptId: null, tags: ['event', 'verified'] },
+
+  // Background checks - 24 emails from Universal Background found in 2026 YTD
+  { id: '11', date: '2026-01-31', categoryId: 'operational', subcategoryId: 'op-vetting', itemId: 'background-check', projectId: null, amount: 552, vendor: 'Universal Background Screening', description: 'January background checks (8 checks x $69)', paymentMethod: 'invoice', status: 'approved', receiptId: null, tags: ['per-expert', 'verified', 'aggregated'] },
+  { id: '12', date: '2026-02-28', categoryId: 'operational', subcategoryId: 'op-vetting', itemId: 'background-check', projectId: null, amount: 552, vendor: 'Universal Background Screening', description: 'February background checks (8 checks x $69)', paymentMethod: 'invoice', status: 'approved', receiptId: null, tags: ['per-expert', 'verified', 'aggregated'] },
+  { id: '13', date: '2026-03-20', categoryId: 'operational', subcategoryId: 'op-vetting', itemId: 'background-check', projectId: null, amount: 552, vendor: 'Universal Background Screening', description: 'March background checks (8 checks x $69, through 3/20)', paymentMethod: 'invoice', status: 'approved', receiptId: null, tags: ['per-expert', 'verified', 'aggregated'] },
+
+  // Streak CRM - billed under Nakeya's account (Plus, 2 seats)
+  // PeopleLooker - billed under Nakeya's account
+  // Meta Ads - no receipts found in Todd's email yet
+  // Conference registrations - no receipts found yet
 ];
 
 export const SAMPLE_PROJECTS = [
-  { id: 'proj-office-hours-q1', name: 'Expert Office Hours Q1', categoryId: 'engagement', budget: 200, description: 'Q1 2026 Office Hours at 2112 + Happy Hour', startDate: '2026-03-25', endDate: '2026-03-25', status: 'active' },
-  { id: 'proj-sxsw', name: 'SXSW 2026 Activation', categoryId: 'engagement', budget: 0, description: 'Cross-functional company opportunity', startDate: '2026-03-07', endDate: '2026-03-15', status: 'planned' },
-  { id: 'proj-bentonville', name: 'Bentonville Recruitment Blitz', categoryId: 'recruitment', budget: 0, description: 'Executive-mandated NW Arkansas expert recruiting sprint', startDate: '2026-03-16', endDate: null, status: 'active' },
+  { id: 'proj-office-hours-q1', name: 'Expert Office Hours Q1', categoryId: 'engagement', budget: 200, description: 'Q1 2026 Office Hours at 2112 + Happy Hour. March 25.', startDate: '2026-03-25', endDate: '2026-03-25', status: 'active' },
+  { id: 'proj-bentonville', name: 'Bentonville Recruitment Blitz', categoryId: 'recruitment', budget: 0, description: 'Executive-mandated NW Arkansas expert recruiting sprint. Budget TBD.', startDate: '2026-03-16', endDate: null, status: 'active' },
   { id: 'proj-q1-ads', name: 'Q1 Paid Ads Pilot', categoryId: 'recruitment', budget: 1000, description: 'Test messaging and channels for expert recruitment ads', startDate: '2026-01-15', endDate: '2026-03-31', status: 'active' },
 ];

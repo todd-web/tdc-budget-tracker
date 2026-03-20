@@ -24,7 +24,7 @@ export default function Receipts() {
           vendor: '',
           amount: null,
           ocrText: '',
-          ocrStatus: 'pending',
+          ocrStatus: null,
           linkedExpenseId: null,
           notes: '',
         };
@@ -72,6 +72,7 @@ export default function Receipts() {
         <div>
           <h2 className="text-lg font-semibold text-tdc-gray-800">Receipt Manager</h2>
           <p className="text-sm text-tdc-gray-500">{receipts.length} receipts uploaded, {receipts.filter(r => r.linkedExpenseId).length} linked to expenses</p>
+          <p className="text-xs text-tdc-orange mt-1">Google Drive storage and OCR auto-processing coming in Phase 2</p>
         </div>
         <button onClick={() => setShowUpload(true)} className="flex items-center gap-1.5 px-4 py-2 text-sm bg-tdc-blue text-white rounded-lg hover:bg-tdc-blue-light shadow-sm">
           <Upload size={14} /> Upload Receipt

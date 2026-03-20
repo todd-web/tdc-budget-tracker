@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { useBudget } from '../store/BudgetContext';
 import { GRAND_TOTAL } from '../data/budgetStructure';
 import { formatCurrency, getPercentage, getStatusColor, getStatusLabel, getCategoryTotals, getMonthlyTotals, sumExpenses, filterExpensesByDateRange, getDateRange } from '../utils/helpers';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, ComposedChart, Line, Legend } from 'recharts';
 import { TrendingUp, TrendingDown, DollarSign, AlertTriangle, CheckCircle } from 'lucide-react';
 
 const DURATION_OPTIONS = [
@@ -74,7 +74,7 @@ export default function Dashboard() {
           value={formatCurrency(GRAND_TOTAL)}
           subtitle="2026 Annual"
           icon={<DollarSign size={20} />}
-          color="blue"
+          color="gold"
         />
         <KPICard
           title="Total Spent"
@@ -84,9 +84,9 @@ export default function Dashboard() {
           color={ytdPercentage > 75 ? 'red' : ytdPercentage > 50 ? 'yellow' : 'green'}
         />
         <KPICard
-          title="Remaining"
+          title="Annual Remaining"
           value={formatCurrency(remaining)}
-          subtitle={`${100 - ytdPercentage}% available`}
+          subtitle={`${100 - ytdPercentage}% of annual budget available`}
           icon={remaining > 0 ? <CheckCircle size={20} /> : <AlertTriangle size={20} />}
           color={remaining > 0 ? 'green' : 'red'}
         />
@@ -95,7 +95,7 @@ export default function Dashboard() {
           value={formatCurrency(totalSpent)}
           subtitle={`${filteredExpenses.length} transactions`}
           icon={<TrendingDown size={20} />}
-          color="purple"
+          color="dark"
         />
       </div>
 
@@ -175,16 +175,16 @@ export default function Dashboard() {
       <div className="bg-white rounded-xl border border-tdc-gray-200 p-5 shadow-sm">
         <h3 className="font-semibold text-tdc-gray-800 mb-4">Monthly Spending Trend</h3>
         <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={cumulativeData}>
+          <ComposedChart data={cumulativeData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
             <XAxis dataKey="month" tick={{ fontSize: 12 }} />
             <YAxis tick={{ fontSize: 12 }} tickFormatter={v => `$${(v/1000).toFixed(0)}k`} />
             <Tooltip formatter={v => formatCurrency(v)} />
             <Legend />
+            <Bar dataKey="total" fill="#3b82f6" opacity={0.3} name="Monthly Spend" radius={[4,4,0,0]} />
             <Line type="monotone" dataKey="cumulative" stroke="#2563eb" strokeWidth={2} name="Cumulative Spend" dot={{ r: 4 }} />
             <Line type="monotone" dataKey="budgetPace" stroke="#94a3b8" strokeWidth={2} strokeDasharray="5 5" name="Budget Pace" dot={false} />
-            <Bar dataKey="total" fill="#3b82f6" opacity={0.3} name="Monthly Spend" />
-          </LineChart>
+          </ComposedChart>
         </ResponsiveContainer>
       </div>
 
@@ -230,13 +230,13 @@ export default function Dashboard() {
 
 function KPICard({ title, value, subtitle, icon, color }) {
   const colorMap = {
-    blue: { bg: 'bg-blue-50', text: 'text-blue-600', border: 'border-blue-200' },
+    gold: { bg: 'bg-amber-50', text: 'text-amber-700', border: 'border-amber-200' },
     green: { bg: 'bg-emerald-50', text: 'text-emerald-600', border: 'border-emerald-200' },
     red: { bg: 'bg-red-50', text: 'text-red-600', border: 'border-red-200' },
     yellow: { bg: 'bg-amber-50', text: 'text-amber-600', border: 'border-amber-200' },
-    purple: { bg: 'bg-purple-50', text: 'text-purple-600', border: 'border-purple-200' },
+    dark: { bg: 'bg-neutral-50', text: 'text-neutral-700', border: 'border-neutral-200' },
   };
-  const c = colorMap[color] || colorMap.blue;
+  const c = colorMap[color] || colorMap.gold;
   return (
     <div className={`rounded-xl border ${c.border} ${c.bg} p-5 shadow-sm`}>
       <div className="flex items-center justify-between mb-2">
